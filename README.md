@@ -2,7 +2,7 @@
 Files used for Modding ALU with Momentart Power Switch and Shelly relay. 
 
 # Installation
-`Shelly_In.js` and Shelly_Out.js` get copied to the Shelly relay using the script editor. <br>
+`Shelly_In.js` and `Shelly_Out.js` get copied to the Shelly relay using the script editor. <br>
 `webhooks-start.sh` goes in the `rcade\share\userscripts\system-ready` folder on the ALU running Legends Unchained/RCADE.<br>
 `webhooks.py` and `shelly-shutdown.py` go into the `rcade\share\userscripts' folder.<br>
 `shelly-shutdown.sh` goes into the `rcade\share\userscripts\shutdown` folder on the ALU running Legends Unchained/RCADE.<br>
