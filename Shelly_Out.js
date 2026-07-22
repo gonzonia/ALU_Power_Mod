@@ -1,3 +1,5 @@
+//This script goes on the Shelly relay and sends commands to the ALU to trigger shutdown or reboot
+
 let SHUTDOWN_URL = "http:/<IP OF ALU>:8000/shutdown"; //Needs to be IP, HOSTNAME might not work
 let SHUTDOWN_DELAY_MS = 30000; // adjust to whatever grace period you want
 let pendingShutdownTimer = null;
