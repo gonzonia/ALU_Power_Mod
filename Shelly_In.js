@@ -1,3 +1,6 @@
+//This is a script to run on the Shelly relay. It monitors for a shutdown call from the ALU. 
+//On the ALU you will need the Script ID found in the URL when you edit/create the script 
+
 let SHUTDOWN_DELAY_MS = 30000; // adjust to whatever grace period you want
 
 let EXPECTED_TOKEN = "<YOUR TOKEN HERE>"; 
