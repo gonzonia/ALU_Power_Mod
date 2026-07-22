@@ -3,6 +3,7 @@
 let SHUTDOWN_URL = "http:/<IP OF ALU>:8000/shutdown"; //Needs to be IP, HOSTNAME might not work
 let SHUTDOWN_DELAY_MS = 30000; // adjust to whatever grace period you want
 let pendingShutdownTimer = null;
+let EXPECTED_TOKEN = "<YOUR TOKEN HERE>"; 
 
 function cutPower() {
   if (pendingShutdownTimer !== null) {
@@ -30,7 +31,7 @@ function onSwitchStatus(result) {
     console.log("Currently ON: notify ALU we want it to shutdown");
     Shelly.call("HTTP.POST", {
       url: SHUTDOWN_URL,
-      body: "{\"action\":\"shutdown\",\"token\":\"<YOUR TOKEN HERE>\"}", 
+      body: "{\"action\":\"shutdown\",\"token\":\"" + EXPECTED_TOKEN + "\"}", 
       content_type: "application/json",
       timeout: 5
     }, onWebhookResult);
@@ -54,7 +55,7 @@ function callReboot(result) {
     console.log("Currently ON: notify ALU we want it to reboot");
     Shelly.call("HTTP.POST", {
       url: SHUTDOWN_URL,
-      body: "{\"action\":\"reboot\",\"token\":\"arcade3D\"}", 
+      body: "{\"action\":\"reboot\",\"token\":\"" + EXPECTED_TOKEN + "\"}", 
       content_type: "application/json",
       timeout: 5
     }, onWebhookResult);
