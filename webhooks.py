@@ -8,8 +8,8 @@ import logging
 logging.basicConfig(
     filename="/rcade/share/userscripts/webhooks.log",
     filemode="w",  # Overwrites the file each time; use 'a' to append
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s",
+    level=logging.WARNING,
+    format="%(asctime)s.%(msecs)03d - %(levelname)s - %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S"
 )
 
@@ -26,6 +26,9 @@ SHUTDOWN_PATH = "/shutdown"
 SIMPLE_CLIENT_SHUTDOWN_CMD = 'timeout 10 python3 /rcade/share/userscripts/simpleClient.py "SHUTDOWN"'
 SIMPLE_CLIENT_REBOOT_CMD = 'timeout 10 python3 /rcade/share/userscripts/simpleClient.py "REBOOT"'
 
+COUNTDOWN_SHUTDOWN = 'python3 /rcade/share/userscripts/countdown_shutdown.py'
+COUNTDOWN_REBOOT =  'python3 /rcade/share/userscripts/countdown_shutdown.py --reboot'
+
 def trigger_shutdown():
     """
     Non-blocking: schedules the shutdown sequence a couple seconds out so
@@ -41,8 +44,9 @@ def trigger_shutdown():
          so a broken notifier never prevents the real shutdown. The
          Shelly's own timer is the true fallback either way.
     """
-    cmd = "%s; sleep 2; shutdown -h now" % SIMPLE_CLIENT_SHUTDOWN_CMD
-
+    
+    cmd = f"{SIMPLE_CLIENT_SHUTDOWN_CMD}&&{COUNTDOWN_SHUTDOWN}"
+    logging.info("triggering shutdown")
     subprocess.Popen(["sh", "-c", cmd])
     
 def trigger_reboot():
@@ -60,8 +64,8 @@ def trigger_reboot():
          so a broken notifier never prevents the real shutdown. The
          Shelly's own timer is the true fallback either way.
     """
-    cmd = "%s; sleep 2; reboot" % SIMPLE_CLIENT_REBOOT_CMD
-
+    cmd = f"{SIMPLE_CLIENT_REBOOT_CMD}&& {COUNTDOWN_REBOOT}"
+    logging.info("triggering reboot")
     subprocess.Popen(["sh", "-c", cmd])    
 
 class WebhookHandler(BaseHTTPRequestHandler):
