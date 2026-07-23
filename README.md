@@ -34,6 +34,6 @@ If you want to change the default countdown, change it here.
 If you want to generate your own frames (different font perhaps, you can run this file). You can also edit the text that gets output if you want it to say something different. 
 
 
-# R-Cade is legal property of Retro-Center. 
-# See the LICENSE.md file at the top-level directory of the Retro-Center github releases
-# at https://github.com/retro-center/rcade_releases/blob/master/LICENSE.md
+***R-Cade is legal property of Retro-Center. 
+See the LICENSE.md file at the top-level directory of the Retro-Center github releases
+at https://github.com/retro-center/rcade_releases/blob/master/LICENSE.md***
