@@ -1,7 +1,7 @@
 ***Full Disclosure: AI was used to aid in this development.***
 
 # ALU_Power_Mod
-Files used for Modding ALU with Momentary Power Switch and Shelly relay. 
+Files used for Modding ALU running Legends Unchained (R-CADE) with Momentary Power Switch and Shelly relay. 
 
 # Installation
 `Shelly_In.js` and `Shelly_Out.js` get copied to the Shelly relay using the script editor. <br><BR>
