@@ -27,9 +27,9 @@ Set `SCRIPT_ID` - This is the Script ID of the Shelly_In script on the Shelly. Y
 Set `EXPECTED_TOKEN`.<BR>
 If you're also using my LCD Marquee project, you can leave in the `SIMPLE_CLIENT_SHUTDOWN_CMD` and `SIMPLE_CLIENT_REBOOT_CMD`, otherwise set them to ''
 
-##countdown_shutdown.py
+## countdown_shutdown.py
 If you want to change the default countdown, change it here. 
 
-##generate_frames.py
+## generate_frames.py
 If you want to generate your own frames (different font perhaps, you can run this file). You can also edit the text that gets output if you want it to say something different. 
 
